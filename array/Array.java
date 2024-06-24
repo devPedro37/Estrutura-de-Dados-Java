@@ -47,7 +47,7 @@ public class Array {
 
     //TAMANHO DO ARRAY DE ALUNOS
     public int tamanhoLista() {
-        return 0;
+        return totalDeAlunos; //PASSAMOS O totalDeAlunos POIS ELA GUARDA A QUANTIDADE DE OBJETOS NA LISTA A POSIÇÃO DELES;
     }
 
     //TOSTRING DO ARRAY

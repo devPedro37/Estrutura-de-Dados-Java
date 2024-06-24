@@ -20,6 +20,10 @@ public class VetorTeste {
         arrayAluno.adicionarAluno(aluno2);
         arrayAluno.adicionarAluno(aluno3);
 
+        //PRINTANDO A LISTA
         System.out.println(arrayAluno);
+
+        //VERIFICANDO O TAMANHO ATUAL DA LISTA
+        System.out.println(arrayAluno.tamanhoLista());
     }
 }
