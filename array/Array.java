@@ -41,7 +41,12 @@ public class Array {
 
     //VERIFICAR SE UM ALUNO ESTÁ NA LISTA (contém)
     public boolean existeAluno(Aluno aluno) {
-
+    //É NECESSÁRIO PERCORRER A LISTA PARA VERIFICAR SE O ALUNO ESTÁ NA LISTA
+        for(int i = 0; i < Vetoralunos.length; i++){
+            if(aluno.equals(Vetoralunos[i])){ // OU PODE SER ASSIM Vetoralunos[i] == aluno PORÉM A VERSÃO NO IF É MELHOR.
+                return true;
+            }
+        }
         return false;
     }
 

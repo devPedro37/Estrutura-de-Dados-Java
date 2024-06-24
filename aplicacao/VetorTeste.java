@@ -25,5 +25,8 @@ public class VetorTeste {
 
         //VERIFICANDO O TAMANHO ATUAL DA LISTA
         System.out.println(arrayAluno.tamanhoLista());
+
+        //VERIFICANDO SE O ALUNO ESTÁ NA LISTA
+        System.out.println(arrayAluno.existeAluno(aluno2));
     }
 }
