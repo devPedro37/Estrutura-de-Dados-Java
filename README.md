@@ -7,7 +7,7 @@
 **Back-end:** Java versão 8. :coffee:
 
 # DIVISÃO DO REPOSITÓRIO: :open_file_folder:
-- Array e Vetor;
+- Array / Vetor;
 - Listas;
 - Pilhas;
 - Filas;
