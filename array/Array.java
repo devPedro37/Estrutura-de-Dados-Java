@@ -28,10 +28,17 @@ public class Array {
         totalDeAlunos++;                                    //E PASSAMOS A POSIÇÃO QUE INDICA QUANTOS ALUNOS TEM CADASTRADO NO ARRAY E A PRÓXIMA POSIÇÃO VAZIA. QUANDO ADICIONAMOS UM ALUNO ELE GUARDA
     }                                                                  // NA VARIÁVEL A POSIÇÃO DO OBJETO ALUNO, INCREMENTA E APONTA O ESPAÇO VAZIO.
 
+
+    //MÉTODO QUE VERIFICA SE A POSIÇÃO É VÁLIDA OU NÃO (TAMANHO PASSADO)
+    private boolean posicaoOcupada(int posicao){
+        return posicao >= 0 && posicao < totalDeAlunos;
+    }
     //PEGAR UM ALUNO DO ARRAY
     public Aluno posicaoAluno(int posicao) {
-
-        return null;
+        if(!posicaoOcupada(posicao)){
+                throw new IllegalArgumentException("A posição que você passou, é inválida tente outra!");
+        }
+        return Vetoralunos[posicao];
     }
 
     //REMOVER ALUNO
@@ -42,7 +49,7 @@ public class Array {
     //VERIFICAR SE UM ALUNO ESTÁ NA LISTA (contém)
     public boolean existeAluno(Aluno aluno) {
     //É NECESSÁRIO PERCORRER A LISTA PARA VERIFICAR SE O ALUNO ESTÁ NA LISTA
-        for(int i = 0; i < Vetoralunos.length; i++){
+        for(int i = 0; i < totalDeAlunos; i++){
             if(aluno.equals(Vetoralunos[i])){ // OU PODE SER ASSIM Vetoralunos[i] == aluno PORÉM A VERSÃO NO IF É MELHOR.
                 return true;
             }
