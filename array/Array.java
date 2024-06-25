@@ -29,6 +29,22 @@ public class Array {
     }                                                                  // NA VARIÁVEL A POSIÇÃO DO OBJETO ALUNO, INCREMENTA E APONTA O ESPAÇO VAZIO.
 
 
+    //MÉTODO AUXILIAR QUE VERIFICA SE A POSIÇÃO DO USUÁRIO É VÁLIDA
+    private boolean posicaoValida(int posicao, Aluno aluno){
+            return posicao >= 0 && posicao <= totalDeAlunos;
+    }
+    //MÉTODO QUE ADICIONA O ALUNO EM QUALQUER POSIÇÃO DO ARRAY
+    public void adiciona(int posicao, Aluno aluno){
+        if(!posicaoOcupada(posicao)){
+            throw  new IllegalArgumentException("A posição que voê inseriu é inválida, tente outra posição!");
+        }
+        for(int i = totalDeAlunos -1; i >= posicao; i -=1){
+            Vetoralunos[i+1] = Vetoralunos[i];
+        }
+        Vetoralunos[posicao] = aluno;
+        totalDeAlunos++;
+    }
+
     //MÉTODO QUE VERIFICA SE A POSIÇÃO É VÁLIDA OU NÃO (TAMANHO PASSADO)
     private boolean posicaoOcupada(int posicao){
         return posicao >= 0 && posicao < totalDeAlunos;
@@ -43,7 +59,11 @@ public class Array {
 
     //REMOVER ALUNO
     public void removerAluno(int posicao) {
-
+            for(int i = 0; i < this.totalDeAlunos; i++){
+                    this.Vetoralunos[i] = this.Vetoralunos[i+1];
+            }
+            this.totalDeAlunos--;
+            this.Vetoralunos[totalDeAlunos] = null;
     }
 
     //VERIFICAR SE UM ALUNO ESTÁ NA LISTA (contém)
