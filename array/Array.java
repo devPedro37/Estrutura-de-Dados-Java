@@ -7,6 +7,8 @@ import java.util.Arrays;
 //CLASSE PARA REPRESENTAR A ESTRUTURA DE DADOS ARRAY
 public class Array {
 
+    //VETOR É UM ARMAZENAMENTO SEQUENCIAL
+
     //INSTANCIAÇÃO DO ARRAY DE ALUNOS
     //ESTRUTURA: tipo, declaração dos colchetes, nomeArray, criação do objeto e tamanhoArray
     private Aluno[] Vetoralunos = new Aluno[100];
@@ -24,6 +26,8 @@ public class Array {
         }
         */
         //NOVA IMPLEMENTAÇÃO
+        this.aumentaEspaco();
+
         this.Vetoralunos[totalDeAlunos] = aluno; //É CRIADO UMA VARIÁVEL QUE GUARDA A QUANTIDADE DE ALUNOS E É INICIADA COM 0. DENTRO DO ADICIONAR, É CHAMADO O VETOR DE ALUNOS E PASSAMOS
         totalDeAlunos++;                                    //E PASSAMOS A POSIÇÃO QUE INDICA QUANTOS ALUNOS TEM CADASTRADO NO ARRAY E A PRÓXIMA POSIÇÃO VAZIA. QUANDO ADICIONAMOS UM ALUNO ELE GUARDA
     }                                                                  // NA VARIÁVEL A POSIÇÃO DO OBJETO ALUNO, INCREMENTA E APONTA O ESPAÇO VAZIO.
@@ -51,6 +55,7 @@ public class Array {
     }
     //PEGAR UM ALUNO DO ARRAY
     public Aluno posicaoAluno(int posicao) {
+        this.aumentaEspaco();
         if(!posicaoOcupada(posicao)){
                 throw new IllegalArgumentException("A posição que você passou, é inválida tente outra!");
         }
@@ -77,9 +82,21 @@ public class Array {
         return false;
     }
 
-    //TAMANHO DO ARRAY DE ALUNOS
+    //MÉTODO QUE VERIFICA O TAMANHO DO ARRAY DE ALUNOS
     public int tamanhoLista() {
         return totalDeAlunos; //PASSAMOS O totalDeAlunos POIS ELA GUARDA A QUANTIDADE DE OBJETOS NA LISTA A POSIÇÃO DELES;
+    }
+
+    //MÉTODO QUE AUMENTA O TAMANHO DO ARRAY QUANDO ELE ESTÁ CHEIO
+    public void aumentaEspaco() {
+        Aluno[] novoArray = null;
+        if (totalDeAlunos == Vetoralunos.length) {
+            novoArray = new Aluno[Vetoralunos.length * 2];
+            for (int i = 0; i < Vetoralunos.length; i++) {
+                novoArray[i] = Vetoralunos[i]; // COPIANDO OS DADOS DO ARRAY ANTIGO PARA O NOVO
+            }
+        this.Vetoralunos = novoArray;
+        }
     }
 
     //TOSTRING DO ARRAY
